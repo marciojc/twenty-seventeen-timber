@@ -1,0 +1,18 @@
+<div class="wrap">
+  {% include "footer/footer-widgets.twig" %}
+
+  {% if has_nav_menu('social') %}
+    <nav class="social-navigation" role="navigation" aria-label="{{__( 'Footer Social Links Menu', 'twentyseventeen' )| e('html_attr') }}">
+      {{ function('wp_nav_menu', {
+        'theme_location' : 'social',
+        'menu_class'     : 'social-links-menu',
+        'depth'          : 1,
+        'link_before'    : '<span class="screen-reader-text">',
+        'link_after'     : '</span>' . twentyseventeen_get_svg( {'icon' : 'chain' } ),
+
+    }) }}
+    </nav>
+  {% endif %}
+
+  {% include "footer/site-info.twig" %}
+</div><!-- .wrap -->

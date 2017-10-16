@@ -1,0 +1,15 @@
+{% if is_active_sidebar('sidebar-2') or is_active_sidebar('sidebar-3')  %}
+  <aside class="widget-area" role="complementary">
+    {% if is_active_sidebar( 'sidebar-2' ) %}
+      <div class="widget-column footer-widget-1">
+        {{ function('dynamic_sidebar', 'sidebar-2') }}
+      </div>
+    {% endif %}
+
+    {% if is_active_sidebar( 'sidebar-3' ) %}
+      <div class="widget-column footer-widget-2">
+        {{ function('dynamic_sidebar', 'sidebar-3') }}
+      </div>
+    {% endif %}
+  </aside><!-- .widget-area -->
+{% endif %}

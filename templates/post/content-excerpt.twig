@@ -1,0 +1,26 @@
+<article id="post-{{post.ID}}" {{ function('post_class') }}>
+
+  <header class="entry-header">
+    {% if 'post' == post.post_type %}
+      <div class="entry-meta">
+        {{ function('twentyseventeen_time_link') }}
+        {{ function('twentyseventeen_edit_link') }}
+      </div><!-- .entry-meta -->
+    {% elseif 'page' == post.post_type and function('get_edit_post_link') %}
+      <div class="entry-meta">
+        {{ function('twentyseventeen_edit_link') }}
+      <div class="entry-meta">
+    {% endif %}
+
+    {% if is_front_page() and not is_home() %}
+      {{ sprintf('<h3 class="entry-title"><a href="%s" rel="bookmark">%s</a></h3>', function('get_permalink')|e('esc_url'), post.post_title) }}
+    {% else %}
+      {{ sprintf('<h2 class="entry-title"><a href="%s" rel="bookmark">%s</a></h2>', function('get_permalink')|e('esc_url'), post.post_title) }}
+    {% endif %}
+  </header><!-- .entry-header -->
+
+  <div class="entry-summary">
+    {{ function('get_the_excerpt', post.ID) }}
+  </div><!-- .entry-summary -->
+
+</article><!-- #post-## -->

@@ -1,0 +1,25 @@
+<header class="entry-header">
+  {% if 'post' == function('get_post_type') %}
+    <div class="entry-meta">
+      {% if function('is_single') %}
+        {{ function('twentyseventeen_posted_on') }}
+      {% else %}
+        {{ function('twentyseventeen_time_link') }}
+        {{ function('twentyseventeen_edit_link') }}
+      {% endif %}
+
+    </div><!-- .entry-meta -->';
+  {% endif %}
+
+  {% if function('is_single') %}
+    <h1 class="entry-title">{{ post.title }}</h1>
+  {% elseif is_front_page() and is_home()  %}
+    <h3 class="entry-title">
+      <a href="{{ post.link }}" rel="bookmark">{{ post.title }}</a>
+    </h3>
+  {% else %}
+    <h2 class="entry-title">
+      <a href="{{ post.link }}" rel="bookmark">{{ post.title }}</a>
+    </h2>
+  {% endif %}
+</header><!-- .entry-header -->

@@ -1,0 +1,24 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	<div class="wrap">
+		<div id="primary" class="content-area">
+			<main id="main" class="site-main" role="main">
+				{% for post in posts %}
+				    {% include 'post/content-' ~ post.post_type ~ '.twig' with {post:post} %}
+
+				    {% if function('comments_open') or function('get_comments_number') %}
+							{{ function('comments_template') }}
+				    {% endif %}
+
+				    {{ function('the_post_navigation',
+							{ 'prev_text' : '<span class="screen-reader-text">' . __( 'Previous Post', 'twentyseventeen' ) . '</span><span aria-hidden="true" class="nav-subtitle">' . __( 'Previous', 'twentyseventeen' ) . '</span> <span class="nav-title"><span class="nav-title-icon-wrapper">' . twentyseventeen_get_svg( {'icon' : 'arrow-left' } ) . '</span>%title</span>',
+								'next_text' : '<span class="screen-reader-text">' . __( 'Next Post', 'twentyseventeen' ) . '</span><span aria-hidden="true" class="nav-subtitle">' . __( 'Next', 'twentyseventeen' ) . '</span> <span class="nav-title">%title<span class="nav-title-icon-wrapper">' . twentyseventeen_get_svg( {'icon' : 'arrow-right'} ) . '</span></span>',
+							})
+						}}
+				{% endfor %}
+			</main><!-- #main -->
+		</div><!-- #primary -->
+		{{ function('get_sidebar') }}
+	</div><!-- .wrap -->
+{% endblock %}

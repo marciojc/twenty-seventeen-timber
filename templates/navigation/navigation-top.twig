@@ -1,0 +1,18 @@
+<nav id="site-navigation" class="main-navigation" role="navigation" aria-label="{{ __( 'Top Menu', 'twentyseventeen' )|e('html_attr') }}">
+  <button class="menu-toggle" aria-controls="top-menu" aria-expanded="false">
+    {{ twentyseventeen_get_svg( { 'icon': 'bars' } ) }}
+    {{ twentyseventeen_get_svg( { 'icon': 'close' } ) }}
+    {{ __( 'Menu', 'twentyseventeen' ) }}
+  </button>
+
+  {{ function('wp_nav_menu', { 'theme_location': 'top', 'menu_id': 'top-menu'} ) }}
+
+  {% if ( ( twentyseventeen_is_frontpage() or ( is_home() and is_front_page() ) ) and has_custom_header() ) %}
+    <a href="#content" class="menu-scroll-down">
+        {{ twentyseventeen_get_svg( { 'icon' : 'arrow-right' } ) }}
+        <span class="screen-reader-text">
+          {{ __( 'Scroll down to content', 'twentyseventeen' ) }}
+        </span>
+      </a>
+  {% endif %}
+</nav><!-- #site-navigation -->

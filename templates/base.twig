@@ -1,0 +1,38 @@
+{% block html_head_container %}
+
+{% include 'html-header.twig' %}
+	{% block head %}
+	{% endblock %}
+	</head>
+{% endblock %}
+
+	<body class="{{body_class}}" data-template="base.twig">
+		<div id="page" class="site">
+			<a class="skip-link screen-reader-text" href="#content">{{ __( 'Skip to content', 'twentyseventeen' ) }}</a>
+
+			{% include 'header.twig' %}
+
+
+			{% if ( ( is_single() or ( is_page() and not twentyseventeen_is_frontpage() ) ) and post.has_post_thumbnail() ) %}
+				<div class="single-featured-image-header">
+					{{ post.get_the_post_thumbnail('twentyseventeen-featured-image' ) }}
+				</div><!-- .single-featured-image-header -->
+			{% endif %}
+
+			<div class="site-content-contain">
+				<div id="content" class="site-content">
+					{% block content %}
+						Sorry, no content
+					{% endblock %}
+				</div><!-- #content -->
+
+				{% block footer %}
+					<footer id="colophon" class="site-footer" role="contentinfo">
+						{% include 'footer.twig' %}
+					</footer><!-- #colophon -->
+				{% endblock %}
+			</div><!-- .site-content-contain -->
+		</div><!-- #page -->
+		{{ function('wp_footer') }}
+	</body>
+</html>

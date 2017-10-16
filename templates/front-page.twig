@@ -1,0 +1,22 @@
+{% extends "base.twig" %}
+
+{% block content %}
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+      {% if posts %}
+        {% for post in posts %}
+          {% include "page/content-front-page.twig" with {post:post} %}
+        {% endfor %}
+      {% else %}
+        {% include "post/content-none.twig" %}
+      {% endif %}
+      {% if ( twentyseventeen_panel_count() != 0 or is_customize_preview()) %}
+        {% for i in range(1, num_sections) %}
+          {{ twentyseventeen_front_page_section(null, i) }}
+        {% endfor %}
+
+      {% endif %}
+
+    </main><!-- #main -->
+  </div><!-- #primary -->
+{% endblock %}

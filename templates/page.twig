@@ -1,0 +1,13 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	<div class="wrap">
+		<div id="primary" class="content-area">
+			<main id="main" class="site-main" role="main">
+        {% for post in posts %}
+				  {% include "page/content-page.twig"  with {post:post} %}
+        {% endfor %}
+			</main><!-- #main -->
+		</div><!-- #primary -->
+	</div><!-- .wrap -->
+{% endblock %}

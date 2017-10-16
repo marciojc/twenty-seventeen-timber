@@ -1,0 +1,12 @@
+<header id="masthead" class="site-header" role="banner">
+  {% include "header/header-image.twig" %}
+
+  {% if function('has_nav_menu', 'top') %}
+    <div class="navigation-top">
+      <div class="wrap">
+        {% include "navigation/navigation-top.twig" %}
+      </div><!-- .wrap -->
+    </div><!-- .navigation-top -->
+  {% endif %}
+
+</header><!-- #masthead -->

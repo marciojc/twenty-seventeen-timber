@@ -1,0 +1,16 @@
+<section class="no-results not-found">
+  <header class="page-header">
+    <h1 class="page-title">{{ __( 'Nothing Found', 'twentyseventeen' ) }}</h1>
+  </header>
+  <div class="page-content">
+    {% if is_home() and function('current_user_can', 'publish_posts') %}
+
+      <p>{{ __( 'Ready to publish your first post? <a href="%1$s">Get started here</a>.', 'twentyseventeen' )| format(function(admin_url, 'post-new.php')| e('esc_url')) }}</p>
+
+    {% else %}
+      <p>{{ __( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'twentyseventeen' ) <p><?php _e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'twentyseventeen' ) }}</p>
+
+      {{ function('get_search_form') }}
+    {% endif %}
+  </div><!-- .page-content -->
+</section><!-- .no-results -->
