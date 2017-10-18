@@ -24,7 +24,9 @@
 global $twentyseventeencounter;
 
 $context = Timber::get_context();
-$context['posts'] = Timber::get_posts();
+$post = new Timber\Post();
+setup_postdata(get_post($post->ID));
+$context['post'] = $post;
 $context['num_sections'] = apply_filters( 'twentyseventeen_front_page_sections', 4 );
 
 Timber::render( array( 'front-page.twig', 'page.twig' ), $context );

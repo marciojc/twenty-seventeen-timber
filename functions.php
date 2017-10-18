@@ -37,9 +37,6 @@ class StarterSite extends TimberSite {
 	}
 
 	function add_to_context( $context ) {
-		$context['foo'] = 'bar';
-		$context['stuff'] = 'I am a value set in your functions.php file';
-		$context['notes'] = 'These values are available everytime you call Timber::get_context();';
 		$context['menu'] = new TimberMenu();
 		$context['site'] = $this;
 		return $context;
@@ -79,7 +76,6 @@ class StarterSite extends TimberSite {
 
 		return $twig;
 	}
-
 }
 
 function dd($values) {
@@ -91,6 +87,15 @@ function dd($values) {
 
 function ratio($thumbnail){
 	return esc_attr($thumbnail[2] / $thumbnail[1] * 100);
+}
+
+add_action( 'setup_postdata', 'my_setup_postdata' );
+
+function my_setup_postdata( $post ) {
+  // $context stores the template context in case you need to reference it
+
+  // Outputs title of your post
+  setup_postdata(get_post($post->ID));
 }
 
 /**

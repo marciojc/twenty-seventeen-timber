@@ -3,10 +3,8 @@
 {% block content %}
   <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
-      {% if posts %}
-        {% for post in posts %}
-          {% include "page/content-front-page.twig" with {post:post} %}
-        {% endfor %}
+      {% if post %}
+        {% include "page/content-front-page.twig" with {post:post} %}
       {% else %}
         {% include "post/content-none.twig" %}
       {% endif %}

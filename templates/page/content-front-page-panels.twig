@@ -27,6 +27,7 @@
         {% if recent_posts %}
           <div class="recent-posts">
             {% for subpost in recent_posts %}
+              {% do action('setup_postdata', subpost) %}
               {% include 'post/content-excerpt.twig' with {post:subpost} %}
             {% endfor %}
             {{ function('wp_reset_postdata') }}
