@@ -39,6 +39,8 @@ class StarterSite extends TimberSite {
 	function add_to_context( $context ) {
 		$context['menu'] = new TimberMenu();
 		$context['site'] = $this;
+		$context['sidebar2'] = Timber::get_widgets('sidebar-2');
+		$context['sidebar3'] = Timber::get_widgets('sidebar-3');
 		return $context;
 	}
 
