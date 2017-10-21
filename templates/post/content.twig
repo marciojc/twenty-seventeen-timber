@@ -1,4 +1,4 @@
-<article id="post-{{ post.ID }}" {{ function('post_class') }}>
+<article id="post-{{ post.ID }}" {{ function('post_class', '', post.ID) }}>
   {% if function('is_sticky') and is_home() %}
     {{ twentyseventeen_get_svg({ icon: 'thumb-tack'}) }}
   {% endif %}
@@ -8,12 +8,7 @@
   {% include 'post/content-thumbnail.twig' %}
 
   <div class="entry-content">
-    {{ function(
-          'the_content',
-          __( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'twentyseventeen' ),
-          post.title
-        )
-    }}
+    {% include 'post/entry-content.twig' %}
 
     {{
       function('wp_link_pages', {

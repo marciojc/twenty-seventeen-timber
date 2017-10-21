@@ -9,12 +9,7 @@
 
   <div class="entry-content">
     {% if is_single() or '' == function('get_the_post_thumbnail') %}
-      {{ function(
-            'the_content',
-            __( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'twentyseventeen' ),
-            post.title
-          )
-      }}
+      {% include 'post/entry-content.twig' %}
 
       {{
         function('wp_link_pages', {
