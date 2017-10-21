@@ -17,11 +17,7 @@
       </header><!-- .entry-header -->
 
       <div class="entry-content">
-        {{ function(
-              'the_content',
-                __( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'twentyseventeen' )|format(function('get_the_title'))
-            )
-        }}
+        {% include 'post/entry-content.twig' %}
       </div><!-- .entry-content -->
 
     </div><!-- .wrap -->
