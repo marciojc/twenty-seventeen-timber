@@ -1,11 +1,11 @@
-<article id="post-{{ post.ID }}" {{ function('post_class') }}>
+<article id="post-{{ post.ID }}" class="{{ post.post_class }}">
   {% if function('is_sticky') and is_home() %}
     {{ twentyseventeen_get_svg({ icon: 'thumb-tack'}) }}
   {% endif %}
 
   {% include 'post/content-header.twig' %}
 
-  {% set content = function('apply_filters', 'the_content', function('get_the_content')) %}
+  {% set content = function('apply_filters', 'the_content', post.content) %}
   {% set video = false %}
 
   {% if false == function('strpos', content, 'wp-playlist-script') %}
@@ -19,7 +19,7 @@
   {% include 'post/content-thumbnail.twig' %}
 
   <div class="entry-content">
-    {% if not is_single() and not video %}
+    {% if not is_single() and video|length %}
       {% for video_html in video %}
         <div class="entry-video">
           {{ video_html }}
@@ -27,12 +27,12 @@
       {% endfor %}
     {% endif %}
 
-    {% if is_single() or not video %}
+    {% if is_single() or not video|length %}
       {% include 'post/entry-content.twig' %}
 
       {{
         function('wp_link_pages', {
-          'before'      : '<div class="page-links">' . __( 'Pages:', 'twentyseventeen' ),
+          'before'      : '<div class="page-links">' ~ __( 'Pages:', 'twentyseventeen' ),
           'after'       : '</div>',
           'link_before' : '<span class="page-number">',
           'link_after'  : '</span>',

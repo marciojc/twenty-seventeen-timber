@@ -1,4 +1,4 @@
-<article id="post-{{ post.ID }}" {{ function('post_class') }}>
+<article id="post-{{ post.ID }}" class="{{ post.post_class }}">
   {% if function('is_sticky') and is_home() %}
     {{ twentyseventeen_get_svg({ icon: 'thumb-tack'}) }}
   {% endif %}
@@ -8,12 +8,12 @@
   {% include 'post/content-thumbnail.twig' %}
 
   <div class="entry-content">
-    {% if is_single() or '' == function('get_the_post_thumbnail') %}
+    {% if is_single() or '' == post.thumbnail %}
       {% include 'post/entry-content.twig' %}
 
       {{
         function('wp_link_pages', {
-          'before'      : '<div class="page-links">' . __( 'Pages:', 'twentyseventeen' ),
+          'before'      : '<div class="page-links">' ~ __( 'Pages:', 'twentyseventeen' ),
           'after'       : '</div>',
           'link_before' : '<span class="page-number">',
           'link_after'  : '</span>',

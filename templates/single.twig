@@ -6,9 +6,9 @@
 			<main id="main" class="site-main" role="main">
 				{% if post %}
 					{% set format = post.post_type %}
-			    {% include 'post/content' ~ (format ? '-' ~ format ? '') ~ '.twig' %}
+			    {% include ['post/content-' ~ post.format ~ '.twig', 'post/content.twig'] with {post:post} %}
 
-			    {% if function('comments_open') or post.comments|length %}
+			    {% if function('comments_open') or post.get_comment_count %}
 						{% include 'comments.twig' %}
 			    {% endif %}
 

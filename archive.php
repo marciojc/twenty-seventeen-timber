@@ -14,7 +14,6 @@
  * @since   Timber 0.2
  */
 
-dd('0cenas');
 $templates = array( 'archive.twig', 'index.twig' );
 
 $context = Timber::get_context();

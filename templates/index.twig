@@ -16,8 +16,7 @@
       <main id="main" class="site-main" role="main">
         {% if posts %}
           {% for post in posts %}
-            {% set format = post.post_type %}
-            {% include 'post/content' ~ (format.length ? '-' ~ format : '') ~ '.twig' with {post:post} %}
+            {% include ['post/content-' ~ post.format ~ '.twig', 'post/content.twig'] with {post:post} %}
           {% endfor %}
         {% else %}
           {% include 'post/content-none.twig' %}

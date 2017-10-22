@@ -1,7 +1,7 @@
 {% if '' != post.thumbnail.src and not is_single() %}
   <div class="post-thumbnail">
     <a href="{{ post.thumbnail.src }}">
-      {{ the_post_thumbnail('twentyseventeen-featured-image') }}
+      {{ post.get_the_post_thumbnail('twentyseventeen-featured-image') }}
     </a>
   </div><!-- .post-thumbnail -->
 {% endif %}

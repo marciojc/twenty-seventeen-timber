@@ -1,5 +1,5 @@
 <header class="entry-header">
-  {% if 'post' == function('get_post_type') %}
+  {% if 'post' == post.post_type %}
     <div class="entry-meta">
       {% if function('is_single') %}
         {{ function('twentyseventeen_posted_on') }}

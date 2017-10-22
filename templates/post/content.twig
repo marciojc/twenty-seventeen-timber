@@ -1,4 +1,4 @@
-<article id="post-{{ post.ID }}" {{ function('post_class', '', post.ID) }}>
+<article id="post-{{ post.ID }}" class="{{ post.post_class }}">
   {% if function('is_sticky') and is_home() %}
     {{ twentyseventeen_get_svg({ icon: 'thumb-tack'}) }}
   {% endif %}
@@ -12,7 +12,7 @@
 
     {{
       function('wp_link_pages', {
-        'before'      : '<div class="page-links">' . __( 'Pages:', 'twentyseventeen' ),
+        'before'      : '<div class="page-links">' ~ __( 'Pages:', 'twentyseventeen' ),
         'after'       : '</div>',
         'link_before' : '<span class="page-number">',
         'link_after'  : '</span>',

@@ -82,17 +82,17 @@ class StarterSite extends TimberSite {
 	}
 }
 
-function theme_the_content($content) {
+function theme_the_content($content, $id) {
 	global $post;
 
-	setup_postdata(get_post($post->ID));
+	setup_postdata($id ? $id : $post->ID);
 	return the_content($content);
 }
 
 function theme_the_post_thumbnail($size='') {
 	global $post;
 
-	setup_postdata(get_post($post->ID));
+	setup_postdata($post->ID);
 	return the_post_thumbnail($size);
 }
 
