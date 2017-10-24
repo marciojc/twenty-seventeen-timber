@@ -68,6 +68,7 @@ class StarterSite extends TimberSite {
 		$twig->addFunction( new Timber\Twig_Function( 'sprintf', 'sprintf' ) );
 		$twig->addFunction( new Timber\Twig_Function( 'the_content', 'theme_the_content' ) );
 		$twig->addFunction( new Timber\Twig_Function( 'the_post_thumbnail', 'theme_the_post_thumbnail' ) );
+		$twig->addFunction( new Timber\Twig_Function( 'the_excerpt', 'theme_the_excerpt' ) );
 		// theme
 		$twig->addFunction( new Timber\Twig_Function( 'twentyseventeen_get_svg', 'twentyseventeen_get_svg' ) );
 		$twig->addFunction( new Timber\Twig_Function( 'twentyseventeen_is_frontpage', 'twentyseventeen_is_frontpage' ) );
@@ -94,6 +95,13 @@ function theme_the_post_thumbnail($size='') {
 
 	setup_postdata($post->ID);
 	return the_post_thumbnail($size);
+}
+
+function theme_the_excerpt($id) {
+	global $post;
+
+	setup_postdata($id);
+	return the_excerpt();
 }
 
 function dd($values) {
