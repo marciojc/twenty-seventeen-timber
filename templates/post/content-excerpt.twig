@@ -1,4 +1,4 @@
-<article id="post-{{post.ID}}" {{ function('post_class') }}>
+<article id="post-{{post.ID}}" class="{{ post.post_class }}">
 
   <header class="entry-header">
     {% if 'post' == post.post_type %}
@@ -20,7 +20,7 @@
   </header><!-- .entry-header -->
 
   <div class="entry-summary">
-    {{ function('get_the_excerpt', post.ID) }}
+    {{ the_excerpt(post.ID) }}
   </div><!-- .entry-summary -->
 
 </article><!-- #post-## -->

@@ -13,9 +13,9 @@
 			{% include 'header.twig' %}
 
 
-			{% if ( ( is_single() or ( is_page() and not twentyseventeen_is_frontpage() ) ) and post.has_post_thumbnail() ) %}
+			{% if ( ( is_single() or ( is_page() and not twentyseventeen_is_frontpage() ) ) and function('has_post_thumbnail', function('get_queried_object_id')) ) %}
 				<div class="single-featured-image-header">
-					{{ post.get_the_post_thumbnail('twentyseventeen-featured-image' ) }}
+					{{ function('get_the_post_thumbnail', function('get_queried_object_id'), 'twentyseventeen-featured-image' ) }}
 				</div><!-- .single-featured-image-header -->
 			{% endif %}
 

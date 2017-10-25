@@ -1,9 +1,29 @@
 {% extends "base.twig" %}
 
 {% block content %}
-	<h2>{{foo}}</h2>
-	<p>{{qux}}</p>
-	{% for post in posts %}
-		{% include ['tease-'~post.post_type~'.twig', 'tease.twig'] %}
-	{% endfor %}
+  <div class="wrap">
+    {% if is_home() and not is_front_page() %}
+      <header class="page-header">
+        <h1 class="page-title"> {{ function('single_post_title') }}</h1>
+      </header>
+    {% else %}
+      <header class="page-header">
+        <h2 class="page-title">{{ __( 'Posts', 'twentyseventeen' ) }}</h2>
+      </header>
+    {% endif %}
+
+    <div id="primary" class="content-area">
+      <main id="main" class="site-main" role="main">
+        {% if posts %}
+          {% for post in posts %}
+            {% include ['post/content-' ~ post.format ~ '.twig', 'post/content.twig'] with {post:post} %}
+          {% endfor %}
+        {% else %}
+          {% include 'post/content-none.twig' %}
+        {% endif %}
+
+      </main><!-- #main -->
+    </div><!-- #primary -->
+    {{ sidebar }}
+  </div><!-- .wrap -->
 {% endblock %}

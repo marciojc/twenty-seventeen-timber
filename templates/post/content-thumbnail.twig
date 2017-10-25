@@ -1,7 +1,7 @@
-{% if '' != function('get_the_post_thumbnail') and not is_single() %}
+{% if '' != post.thumbnail.src and not is_single() %}
   <div class="post-thumbnail">
-    <a href="<?php the_permalink(); ?>">
-      {{ function('the_post_thumbnail', 'twentyseventeen-featured-image') }}
+    <a href="{{ post.thumbnail.src }}">
+      {{ post.get_the_post_thumbnail('twentyseventeen-featured-image') }}
     </a>
   </div><!-- .post-thumbnail -->
 {% endif %}

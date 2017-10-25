@@ -1,4 +1,4 @@
-<article id="post-{{ post.ID }}" {{ function('post_class') }}>
+<article id="post-{{ post.ID }}" class="{{ post.post_class }}">
   <header class="entry-header">
     <h1 class="entry-title">{{ post.title }}</h1>
     {{ twentyseventeen_edit_link( post.ID ) }}
@@ -6,6 +6,7 @@
 
   <div class="entry-content">
     {{ post.content }}
+
     {{ function('wp_link_pages', {
         'before' : '<div class="page-links">' . __( 'Pages:', 'twentyseventeen' ),
         'after'  : '</div>',

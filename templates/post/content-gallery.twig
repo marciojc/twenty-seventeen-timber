@@ -1,30 +1,31 @@
-<article id="post-{{ post.ID }}" {{ function('post_class') }}>
+<article id="post-{{ post.ID }}" class="{{ post.post_class }}">
   {% if function('is_sticky') and is_home() %}
     {{ twentyseventeen_get_svg({ icon: 'thumb-tack'}) }}
   {% endif %}
 
   {% include 'post/content-header.twig' %}
+  {% set gallery = function('get_post_gallery', post.ID) %}
 
-  {% include 'post/content-thumbnail.twig' %}
+  {% if not gallery %}
+    {% include 'post/content-thumbnail.twig' %}
+  {% endif %}
 
   <div class="entry-content">
-    {% if not is_single() and function('get_post_gallery') %}
-      <div class="entry-video">
-        {{ function('get_post_gallery') }}
-      </div>
+    {% if not is_single() %}
+
+      {% if gallery %}
+        <div class="entry-gallery">
+          {{ gallery }}
+        </div>
+      {% endif %}
     {% endif %}
 
-    {% if is_single() or not function('get_post_gallery') %}
-      {{ function(
-            'the_content',
-            __( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'twentyseventeen' ),
-            post.title
-          )
-      }}
+    {% if is_single() or not gallery %}
+      {% include 'post/entry-content.twig' %}
 
       {{
         function('wp_link_pages', {
-          'before'      : '<div class="page-links">' . __( 'Pages:', 'twentyseventeen' ),
+          'before'      : '<div class="page-links">' ~ __( 'Pages:', 'twentyseventeen' ),
           'after'       : '</div>',
           'link_before' : '<span class="page-number">',
           'link_after'  : '</span>',
