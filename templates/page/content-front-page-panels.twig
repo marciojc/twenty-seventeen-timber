@@ -1,4 +1,4 @@
-<article id="panel{{ twentyseventeencounter }}" {{ function('post_class', 'twentyseventeen-panel ') }}>
+<article id="panel{{ twentyseventeencounter }}" class="{{ post.post_class('twentyseventeen-panel') }}">
   {% if function('has_post_thumbnail') %}
     {% set thumbnail = function('wp_get_attachment_image_src', function('get_post_thumbnail_id', post.ID), 'twentyseventeen-featured-image' ) %}
     <div class="panel-image" style="background-image: url({{ thumbnail[0]|e('esc_url') }});">
@@ -16,11 +16,7 @@
       </header><!-- .entry-header -->
 
       <div class="entry-content">
-        {{ function(
-              'the_content',
-              __( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'twentyseventeen' )|format(function('get_the_title'))
-            )
-        }}
+        {% include 'post/entry-content.twig' %}
       </div><!-- .entry-content -->
 
       {% if function('get_the_ID') == get_option('page_for_posts') %}

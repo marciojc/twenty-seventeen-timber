@@ -1,0 +1,37 @@
+{% extends "base.twig" %}
+
+{% block content %}
+  <div class="wrap">
+    <header class="page-header">
+      {% if posts|length %}
+        <h1 class="page-title">{{ sprintf(__( 'Search Results for: %s', 'twentyseventeen' ), '<span>' ~ function('get_search_query') ~ '</span>' ) }}</h1>
+      {% else %}
+        <h1 class="page-title">{{ __( 'Nothing Found', 'twentyseventeen' ) }}</h1>
+      {% endif %}
+    </header><!-- .page-header -->
+
+    <div id="primary" class="content-area">
+      <main id="main" class="site-main" role="main">
+        {% if posts|length %}
+          {% for post in posts %}
+            {% include 'post/content-excerpt.twig' with {post:post} %}
+          {% endfor %}
+
+          {{
+            function('the_posts_pagination',
+              {
+                'prev_text': twentyseventeen_get_svg( { 'icon': 'arrow-left' } ) ~ '<span class="screen-reader-text">' ~ __( 'Previous page', 'twentyseventeen' ) ~ '</span>',
+                'next_text': '<span class="screen-reader-text">' ~ __( 'Next page', 'twentyseventeen' ) ~ '</span>' ~ twentyseventeen_get_svg( { 'icon': 'arrow-right' } ),
+                'before_page_number': '<span class="meta-nav screen-reader-text">' ~ __( 'Page', 'twentyseventeen' ) ~ ' </span>',
+              }
+            )
+          }}
+        {% else %}
+          <p>{{ __( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'twentyseventeen' ) }}</p>
+          {{ function('get_search_form') }}
+        {% endif %}
+      </main><!-- #main -->
+    </div><!-- #primary -->
+    {{ sidebar }}
+  </div><!-- .wrap -->
+{% endblock %}

@@ -8,7 +8,7 @@
       <p>{{ __( 'Ready to publish your first post? <a href="%1$s">Get started here</a>.', 'twentyseventeen' )| format(function(admin_url, 'post-new.php')| e('esc_url')) }}</p>
 
     {% else %}
-      <p>{{ __( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'twentyseventeen' ) <p><?php _e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'twentyseventeen' ) }}</p>
+      <p>{{ __( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'twentyseventeen' ) }}<p>{{ __( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'twentyseventeen' ) }}</p>
 
       {{ function('get_search_form') }}
     {% endif %}

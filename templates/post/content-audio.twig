@@ -1,4 +1,4 @@
-<article id="post-{{ post.ID }}" {{ function('post_class') }}>
+<article id="post-{{ post.ID }}" class="{{ post.post_class }}">
   {% if function('is_sticky') and is_home() %}
     {{ twentyseventeen_get_svg({ icon: 'thumb-tack'}) }}
   {% endif %}
@@ -28,16 +28,11 @@
     {% endif %}
 
     {% if is_single() or not audio %}
-      {{ function(
-            'the_content',
-            __( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'twentyseventeen' ),
-            post.title
-          )
-      }}
+      {% include 'post/entry-content.twig' %}
 
       {{
         function('wp_link_pages', {
-          'before'      : '<div class="page-links">' . __( 'Pages:', 'twentyseventeen' ),
+          'before'      : '<div class="page-links">' ~ __( 'Pages:', 'twentyseventeen' ),
           'after'       : '</div>',
           'link_before' : '<span class="page-number">',
           'link_after'  : '</span>',

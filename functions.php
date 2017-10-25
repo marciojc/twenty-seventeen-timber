@@ -39,6 +39,8 @@ class StarterSite extends TimberSite {
 	function add_to_context( $context ) {
 		$context['menu'] = new TimberMenu();
 		$context['site'] = $this;
+		$context['sidebar2'] = Timber::get_widgets('sidebar-2');
+		$context['sidebar3'] = Timber::get_widgets('sidebar-3');
 		return $context;
 	}
 
@@ -64,6 +66,9 @@ class StarterSite extends TimberSite {
 		$twig->addFunction( new Timber\Twig_Function( 'page_for_posts', 'page_for_posts' ) );
 		$twig->addFunction( new Timber\Twig_Function( 'get_option', 'get_option' ) );
 		$twig->addFunction( new Timber\Twig_Function( 'sprintf', 'sprintf' ) );
+		$twig->addFunction( new Timber\Twig_Function( 'the_content', 'theme_the_content' ) );
+		$twig->addFunction( new Timber\Twig_Function( 'the_post_thumbnail', 'theme_the_post_thumbnail' ) );
+		$twig->addFunction( new Timber\Twig_Function( 'the_excerpt', 'theme_the_excerpt' ) );
 		// theme
 		$twig->addFunction( new Timber\Twig_Function( 'twentyseventeen_get_svg', 'twentyseventeen_get_svg' ) );
 		$twig->addFunction( new Timber\Twig_Function( 'twentyseventeen_is_frontpage', 'twentyseventeen_is_frontpage' ) );
@@ -76,6 +81,27 @@ class StarterSite extends TimberSite {
 
 		return $twig;
 	}
+}
+
+function theme_the_content($content, $id) {
+	global $post;
+
+	setup_postdata($id ? $id : $post->ID);
+	return the_content($content);
+}
+
+function theme_the_post_thumbnail($size='') {
+	global $post;
+
+	setup_postdata($post->ID);
+	return the_post_thumbnail($size);
+}
+
+function theme_the_excerpt($id) {
+	global $post;
+
+	setup_postdata($id);
+	return the_excerpt();
 }
 
 function dd($values) {
