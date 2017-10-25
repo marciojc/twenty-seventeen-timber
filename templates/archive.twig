@@ -13,7 +13,7 @@
       <main id="main" class="site-main" role="main">
         {% if posts %}
           {% for post in posts %}
-
+            {% include ['post/content-' ~ post.format ~ '.twig', 'post/content.twig'] with {post:post} %}
           {% endfor %}
 
           {{
@@ -27,6 +27,8 @@
             {% include 'post/content-none.twig' %}
         {% endif %}
 
-
+      </main><!-- #main -->
+    </div><!-- #primary -->
+    {{ sidebar }}
   </div><!-- .wrap -->
 {% endblock %}
