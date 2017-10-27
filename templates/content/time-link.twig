@@ -1,0 +1,9 @@
+<span class="screen-reader-text">{{ __('Posted on', 'twentyseventeen') }}</span>
+<a href="{{ post.link }}" rel="bookmark">
+  {% if function('get_the_time',  'U') != post.modified_date('U') %}
+    <time class="entry-date published" datetime="{{ post.date(DATE_W3C) }}">{{ post.date }}</time>
+    <time class="updated" datetime="{{ post.modified_date(DATE_W3C) }}">{{ post.modified_date }}</time>
+  {% else %}
+    <time class="entry-date published updated" datetime="{{ post.date(DATE_W3C) }}">{{ post.date }}</time>
+  {% endif %}
+</a>

@@ -3,7 +3,7 @@
   <header class="entry-header">
     {% if 'post' == post.post_type %}
       <div class="entry-meta">
-        {{ function('twentyseventeen_time_link') }}
+        {% include 'content/time-link.twig' %}
         {% include 'content/edit-link.twig' %}
       </div><!-- .entry-meta -->
     {% elseif 'page' == post.post_type and function('get_edit_post_link') %}

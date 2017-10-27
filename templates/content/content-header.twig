@@ -4,7 +4,7 @@
       {% if function('is_single') %}
         {% include 'content/post-on.twig' %}
       {% else %}
-        {{ function('twentyseventeen_time_link') }}
+        {% include 'content/time-link.twig' %}
         {% include 'content/edit-link.twig' %}
       {% endif %}
 
