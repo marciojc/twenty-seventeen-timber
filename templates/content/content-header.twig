@@ -2,7 +2,7 @@
   {% if 'post' == post.post_type %}
     <div class="entry-meta">
       {% if function('is_single') %}
-        {{ function('twentyseventeen_posted_on') }}
+        {% include 'content/post-on.twig' %}
       {% else %}
         {{ function('twentyseventeen_time_link') }}
         {% include 'content/edit-link.twig' %}
