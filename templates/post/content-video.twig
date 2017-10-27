@@ -1,5 +1,5 @@
 <article id="post-{{ post.ID }}" class="{{ post.post_class }}">
-  {% if function('is_sticky') and is_home() %}
+  {% if function('is_sticky', post.ID) and is_home() %}
     {{ twentyseventeen_get_svg({ icon: 'thumb-tack'}) }}
   {% endif %}
 
