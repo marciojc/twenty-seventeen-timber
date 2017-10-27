@@ -7,7 +7,7 @@
   {% set gallery = function('get_post_gallery', post.ID) %}
 
   {% if not gallery %}
-    {% include 'post/content-thumbnail.twig' %}
+    {% include 'content/content-thumbnail.twig' %}
   {% endif %}
 
   <div class="entry-content">
