@@ -3,7 +3,7 @@
     {{ twentyseventeen_get_svg({ icon: 'thumb-tack'}) }}
   {% endif %}
 
-  {% include 'post/content-header.twig' %}
+  {% include 'content/content-header.twig' %}
   {% set gallery = function('get_post_gallery', post.ID) %}
 
   {% if not gallery %}

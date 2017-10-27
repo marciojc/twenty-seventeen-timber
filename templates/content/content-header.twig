@@ -5,7 +5,7 @@
         {{ function('twentyseventeen_posted_on') }}
       {% else %}
         {{ function('twentyseventeen_time_link') }}
-        {{ function('twentyseventeen_edit_link') }}
+        {% include 'content/edit-link.twig' %}
       {% endif %}
 
     </div><!-- .entry-meta -->

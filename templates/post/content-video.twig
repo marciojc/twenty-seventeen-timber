@@ -3,7 +3,7 @@
     {{ twentyseventeen_get_svg({ icon: 'thumb-tack'}) }}
   {% endif %}
 
-  {% include 'post/content-header.twig' %}
+  {% include 'content/content-header.twig' %}
 
   {% set content = function('apply_filters', 'the_content', post.content) %}
   {% set video = false %}
