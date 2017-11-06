@@ -1,4 +1,4 @@
-# [Twenty Seventeen Timber](https://github.com/marciojc/twenty-seventeen-timber) &nbsp; [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=Get%20over%20170%20free%20design%20blocks%20based%20on%20Bootstrap%204&url=https://github.com/marciojc/twenty-seventeen-timber&via=marciojc&hashtags=bootstrap,design,templates,blocks,developers)
+# [Twenty Seventeen Timber](https://github.com/marciojc/twenty-seventeen-timber) &nbsp; [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=Get%20the%20Twenty%20Seventeen%20Theme%20on%20Timber%20for%20Wordpress&url=https://github.com/marciojc/twenty-seventeen-timber&via=marciojc&hashtags=bootstrap,theme,wordpress,twig,timber)
 
 [![Price](https://img.shields.io/badge/price-FREE-0098f7.svg)](https://github.com/marciojc/twenty-seventeen-timber/blob/master/LICENSE)
 
