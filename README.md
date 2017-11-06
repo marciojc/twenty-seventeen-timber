@@ -12,7 +12,7 @@ For more information about Twenty Seventeen please go to https://codex.wordpress
 Quick start:
 
 - Install Timber plugin
-- Clone the repo: `git clone https://github.com/froala/design-blocks.git`
+- Clone the repo: `git clone https://github.com/marciojc/twenty-seventeen-timber`
 - Navigate to Appearance > Customize in your admin panel and customize to taste
 
 ## What's included
