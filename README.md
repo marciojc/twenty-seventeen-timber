@@ -1,27 +1,51 @@
-=== Twenty Seventeen ===
-Contributors: the WordPress team
-Requires at least: WordPress 4.7
-Tested up to: WordPress 4.9-trunk
-Version: 1.3
-License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tags: one-column, two-columns, right-sidebar, flexible-header, accessibility-ready, custom-colors, custom-header, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, post-formats, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready
+# [Twenty Seventeen Timber](https://github.com/marciojc/twenty-seventeen-timber) &nbsp; [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=Get%20over%20170%20free%20design%20blocks%20based%20on%20Bootstrap%204&url=https://github.com/marciojc/twenty-seventeen-timber&via=marciojc&hashtags=bootstrap,design,templates,blocks,developers)
 
-== Description ==
+[![Price](https://img.shields.io/badge/price-FREE-0098f7.svg)](https://github.com/marciojc/twenty-seventeen-timber/blob/master/LICENSE)
 
 Twenty Seventeen brings your site to life with header video and immersive featured images. With a focus on business sites, it features multiple sections on the front page as well as widgets, navigation and social menus, a logo, and more. Personalize its asymmetrical grid with a custom color scheme and showcase your multimedia content with post formats. Our default theme for 2017 works great in many languages, for any abilities, and on any device.
 
 For more information about Twenty Seventeen please go to https://codex.wordpress.org/Twenty_Seventeen.
 
-== Installation ==
 
-1. In your admin panel, go to Appearance -> Themes and click the 'Add New' button.
-2. Type in Twenty Seventeen in the search form and press the 'Enter' key on your keyboard.
-3. Click on the 'Activate' button to use your new theme right away.
-4. Go to https://codex.wordpress.org/Twenty_Seventeen for a guide on how to customize this theme.
-5. Navigate to Appearance > Customize in your admin panel and customize to taste.
+# Quick start
 
-== Copyright ==
+Quick start:
+
+- Install Timber plugin
+- Clone the repo: `git clone https://github.com/froala/design-blocks.git`
+- Navigate to Appearance > Customize in your admin panel and customize to taste
+
+## What's included
+
+```
+twenty-seventeen-timber/
+├── assets/
+│   ├── css/
+│   ├── images/
+│   └── js/
+├── bin/
+├── inc/
+├── static/
+├── templates/
+├── tests/
+```
+
+## Bugs and feature requests
+
+Have a bug or a feature request? Please first read the issue guidelines and search for existing and closed issues. If your problem or idea is not addressed yet, [please open a new issue](https://github.com/marciojc/twenty-seventeen-timber/issues/new).
+
+## Dependencies
+
+- **Timber**
+
+- **Bootstrap**
+
+- **Font Awesome**
+
+- **Google Fonts**
+
+
+## Copyright and license
 
 Twenty Seventeen WordPress Theme, Copyright 2016 WordPress.org
 Twenty Seventeen is distributed under the terms of the GNU GPL
@@ -57,25 +81,3 @@ Source: http://fontawesome.io/
 Bundled header image, Copyright Alvin Engler
 License: CC0 1.0 Universal (CC0 1.0)
 Source: https://unsplash.com/@englr?photo=bIhpiQA009k
-
-== Changelog ==
-
-= 1.3 =
-* Released: June 8, 2017
-
-https://codex.wordpress.org/Twenty_Seventeen_Theme_Changelog#Version_1.3
-
-= 1.2 =
-* Released: April 18, 2017
-
-https://codex.wordpress.org/Twenty_Seventeen_Theme_Changelog#Version_1.2
-
-= 1.1 =
-* Released: January 6, 2017
-
-https://codex.wordpress.org/Twenty_Seventeen_Theme_Changelog#Version_1.1
-
-= 1.0 =
-* Released: December 6, 2016
-
-Initial release
