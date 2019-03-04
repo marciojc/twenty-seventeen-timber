@@ -14,11 +14,13 @@ if ( ! class_exists( 'Timber' ) ) {
 
 Timber::$dirname = array('templates', 'views');
 
-class StarterSite extends TimberSite {
+class TwentySeventeen extends TimberSite {
 
 	function __construct() {
 		add_action( 'after_setup_theme', array( $this, 'theme_supports' ) );
 		add_filter( 'timber_context', array( $this, 'add_to_context' ) );
+		add_action( 'wp_enqueue_scripts',         array( $this, 'scripts' ), 10 );
+
 		add_filter( 'get_twig', array( $this, 'add_to_twig' ) );
 		add_action( 'init', array( $this, 'register_post_types' ) );
 		add_action( 'init', array( $this, 'register_taxonomies' ) );
@@ -39,6 +41,22 @@ class StarterSite extends TimberSite {
 		add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption' ) );
 	}
 
+	/**
+	 * Enqueue scripts and styles.
+	 *
+	 * @since  1.0.0
+	 */
+	public function scripts() {
+		global $storefront_version;
+
+		wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css', array(), wp_get_theme()->get( 'Version' ) );
+
+		/**
+		 * Styles
+		 */
+		wp_enqueue_style( 'twentynineteen-style', get_template_directory_uri() . '/style.css', array(), wp_get_theme()->get( 'Version' ) );
+	}
+
 	function register_post_types() {
 		//this is where you can register custom post types
 	}
@@ -55,15 +73,9 @@ class StarterSite extends TimberSite {
 		return $context;
 	}
 
-	function myfoo( $text ) {
-		$text .= ' bar!';
-		return $text;
-	}
-
 	function add_to_twig( $twig ) {
 		/* this is where you can add your own functions to twig */
 		$twig->addExtension( new Twig_Extension_StringLoader() );
-		$twig->addFilter('myfoo', new Twig_SimpleFilter('myfoo', array($this, 'myfoo')));
 		// wordpress
 		$twig->addFunction( new Timber\Twig_Function( 'is_home', 'is_home' ) );
 		$twig->addFunction( new Timber\Twig_Function( 'is_front_page', 'is_front_page' ) );
@@ -135,10 +147,4 @@ function my_setup_postdata( $post ) {
   setup_postdata(get_post($post->ID));
 }
 
-/**
- * Custom template tags for this theme.
- */
-require get_template_directory() . '/inc/theme-functions.php';
-require get_template_directory() . '/inc/twig-functions.php';
-
-new StarterSite();
+new TwentySeventeen();
