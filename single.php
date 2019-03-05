@@ -10,7 +10,7 @@
  */
 
 $context = Timber::get_context();
-$post = Timber::query_post();
+$post = new Timber\Post();
 $context['post'] = $post;
 $context['sidebar'] = Timber::get_sidebar('sidebar.php');
 

@@ -19,7 +19,7 @@ Quick start:
 ## What's included
 
 ```
-twenty-seventeen-timber/
+twenty-seventeen-child/
 ├── assets/
 │   ├── css/
 │   ├── images/
