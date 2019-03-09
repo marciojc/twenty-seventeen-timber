@@ -13,9 +13,15 @@
     {% endif %}
 
     {% if is_front_page() and not is_home() %}
-      {{ sprintf('<h3 class="entry-title"><a href="%s" rel="bookmark">%s</a></h3>', function('get_permalink')|e('esc_url'), post.post_title) }}
+      <h3 class="entry-title">
+      	<a href="{{ post.link }}" rel="bookmark">
+      		{{ post.post_title }}
+      	</a>
+      </h3>
     {% else %}
-      {{ sprintf('<h2 class="entry-title"><a href="%s" rel="bookmark">%s</a></h2>', function('get_permalink')|e('esc_url'), post.post_title) }}
+      <h2 class="entry-title">
+      	<a href="{{ post.link }}" rel="bookmark">{{ post.post_title }}</a>
+      </h2>
     {% endif %}
   </header><!-- .entry-header -->
 
