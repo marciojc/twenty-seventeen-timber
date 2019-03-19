@@ -10,7 +10,7 @@
  */
 
 $templates = array( 'search.twig', 'archive.twig', 'index.twig' );
-$context = Timber::get_context();
+$context = Timber::context();
 
 $context['posts'] = Timber::get_posts();
 $context['sidebar'] = Timber::get_sidebar('sidebar.php');

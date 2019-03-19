@@ -23,7 +23,7 @@
 
 global $twentyseventeencounter;
 
-$context = Timber::get_context();
+$context = Timber::context();
 $post = new Timber\Post();
 setup_postdata(get_post($post->ID));
 $context['post'] = $post;

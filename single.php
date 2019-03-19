@@ -9,7 +9,7 @@
  * @since    Timber 0.1
  */
 
-$context = Timber::get_context();
+$context = Timber::context();
 $post = new Timber\Post();
 $context['post'] = $post;
 $context['sidebar'] = Timber::get_sidebar('sidebar.php');

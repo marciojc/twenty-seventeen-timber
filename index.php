@@ -13,7 +13,7 @@
  * @since   Timber 0.1
  */
 
-$context = Timber::get_context();
+$context = Timber::context();
 $context['posts'] = Timber::get_posts();
 $context['sidebar'] = Timber::get_sidebar('sidebar.php');
 $templates = array( 'index.twig' );
