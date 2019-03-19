@@ -12,7 +12,7 @@
 $templates = array( 'search.twig', 'archive.twig', 'index.twig' );
 $context = Timber::context();
 
-$context['posts'] = Timber::get_posts();
+$context['posts'] = Timber\PostQuery();
 $context['sidebar'] = Timber::get_sidebar('sidebar.php');
 
 Timber::render( $templates, $context );
