@@ -14,14 +14,14 @@ if ( ! class_exists( 'Timber' ) ) {
 
 Timber::$dirname = array('templates', 'views');
 
-class TwentySeventeen extends TimberSite {
+class TwentySeventeen extends Timber\Site {
 
 	function __construct() {
 		add_action( 'after_setup_theme', array( $this, 'theme_supports' ) );
-		add_filter( 'timber_context', array( $this, 'add_to_context' ) );
+		add_filter( 'timber/context', array( $this, 'add_to_context' ) );
 		add_action( 'wp_enqueue_scripts',         array( $this, 'scripts' ), 10 );
 
-		add_filter( 'get_twig', array( $this, 'add_to_twig' ) );
+		add_filter( 'timber/twig', array( $this, 'add_to_twig' ) );
 		add_action( 'init', array( $this, 'register_post_types' ) );
 		add_action( 'init', array( $this, 'register_taxonomies' ) );
 		parent::__construct();
@@ -66,7 +66,7 @@ class TwentySeventeen extends TimberSite {
 	}
 
 	function add_to_context( $context ) {
-		$context['menu'] = new TimberMenu();
+		$context['menu'] = new Timber\Menu();
 		$context['site'] = $this;
 		$context['sidebar2'] = Timber::get_widgets('sidebar-2');
 		$context['sidebar3'] = Timber::get_widgets('sidebar-3');
