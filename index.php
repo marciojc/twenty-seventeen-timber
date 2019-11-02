@@ -14,7 +14,7 @@
  */
 
 $context = Timber::context();
-$context['posts'] = Timber\PostQuery();
+$context['posts'] = new Timber\PostQuery();
 $context['sidebar'] = Timber::get_sidebar('sidebar.php');
 $templates = array( 'index.twig' );
 
